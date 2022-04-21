@@ -6,12 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game App Mosquito</title>
     <link rel="stylesheet" href="estilo.css">
-    <scrip src="jogo.js"></scrip>
 </head>
-<body onresize="ajustaTamanhoPalcoJogo()" class="mosquito1">
-<script>
-    posicaoRandomica()
-</script>    
+<body onresize="ajustaTamanhoPalcoJogo()">
+
+    <div class="painel">
+        <div class="vidas">
+            <img src="imagens/coracao_vazio.png">
+            <img src="imagens/coracao_cheio.png">
+            <img src="imagens/coracao_cheio.png">
+        </div>
+        <div class="cronometro">
+            Tempo restante: ?
+        </div>
+    </div>
+    <script  src="jogo.js">
+        
+        setInterval(function(){ 
+            posicaoRandomica()
+        }, 1000)
+        
+
+    </script>    
+
 </body>
 
 </html>
