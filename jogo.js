@@ -20,17 +20,19 @@ posicaoY = posicaoY < 0 ? 0 : posicaoY
 console.log(posicaoX, posicaoY)
 
 // criar elemento html
-var mosquito = document.createElement('img')
+    var mosquito = document.createElement('img')
 
-mosquito.src = 'imagens/mosquito.png'
-mosquito.className = tamanhoAleatorio()
+    mosquito.src = 'imagens/mosquito.png'
+    mosquito.className = tamanhoAleatorio() + '' + ladoAleatorio()
 // aplicação das coordenadas
-mosquito.style.left = posicaoX + 'px'
-mosquito.style.top = posicaoY + 'px'
+    mosquito.style.left = posicaoX + 'px'
+    mosquito.style.top = posicaoY + 'px'
 // para que as coordenadas sejam aplicadas a posição deve ser absoluta
-mosquito.style.position = 'absolute'
+    mosquito.style.position = 'absolute'
 
-document.body.appendChild('mosquito')
+    document.body.appendChild('mosquito')
+
+    ladoAleatorio() 
 }
 
 function tamanhoAleatorio() {
@@ -45,5 +47,17 @@ function tamanhoAleatorio() {
 
         case 2:
             return 'mosquito3'
+    }
+}
+
+function ladoAleatorio() {
+    
+    var classe = Math.floor(Math.random() * 2)
+    switch(classe) {
+        case 0:
+            return 'ladoA'
+
+        case 1:
+            return 'ladoB'
     }
 }
