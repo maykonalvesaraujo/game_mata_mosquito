@@ -1,5 +1,6 @@
 var altura = 0
 var largura = 0
+var vidas = 1
 
 function ajustaTamanhoPalcoJogo(){
     altura = window.innerHeight
@@ -14,6 +15,13 @@ function posicaoRandomica() {
 
 if (document.getElementById('mosquito')){
     document.getElementById('mosquito').remove()
+
+    if( vidas > 3 ){
+        window.location.href = 'fim_de_jogo.html'
+    }else{
+    document.getElementById('v' + vidas).src = 'imagens/coracao_vazio.png'
+    vidas++
+    }
 }
 
 
@@ -26,16 +34,19 @@ posicaoY = posicaoY < 0 ? 0 : posicaoY
 console.log(posicaoX, posicaoY)
 
 // criar elemento html
-    var mosquito = document.createElement("img")
-
+    var mosquito = document.createElement('img')
     mosquito.src = 'imagens/mosquito.png'
-    mosquito.className = tamanhoAleatorio() + '' + ladoAleatorio()
+    mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+
 // aplicação das coordenadas
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
 // para que as coordenadas sejam aplicadas a posição deve ser absoluta
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function(){
+        this.remove()
+    }
     document.body.appendChild('mosquito')
 
     ladoAleatorio() 
